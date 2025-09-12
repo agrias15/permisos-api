@@ -1,0 +1,15 @@
+# Ignorar dependencias
+node_modules/
+
+# Ignorar variables de entorno (claves privadas)
+.env
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración del editor
+.vscode/
+
+# Logs y temporales
+npm-debug.log
