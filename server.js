@@ -4,7 +4,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,7 +17,7 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME
 });
 
-// Ruta para guardar datos en MySQL
+// Ruta para guardar datos en MySQL (POST)
 app.post("/guardar", (req, res) => {
   const {
     fecha,
@@ -48,6 +47,18 @@ app.post("/guardar", (req, res) => {
       res.json({ message: "✅ Guardado en MySQL", id: result.insertId });
     }
   );
+});
+
+// 🚀 Nueva ruta para consultar todos los permisos (GET)
+app.get("/permisos", (req, res) => {
+  const sql = "SELECT * FROM permisos ORDER BY id DESC";
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("❌ Error al consultar:", err);
+      return res.status(500).json({ error: "Error al consultar la BD" });
+    }
+    res.json(results);
+  });
 });
 
 // Render usa su propia variable PORT, local usamos 3000
