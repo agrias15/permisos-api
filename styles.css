@@ -1,0 +1,192 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* ==== TOAST (notificaciones elegantes) ==== */
+.toast {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  background: #333;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+/* Estado visible */
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Colores según tipo */
+.toast.success {
+  background: #27ae60;
+}
+
+.toast.error {
+  background: #e74c3c;
+}
+
+.toast.warning {
+  background: #f39c12;
+}
+
+
+/* Contenedor principal */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Título */
+h2, h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Formulario en grilla */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-grid label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Botón */
+button {
+  grid-column: span 2;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* Imagen interactiva */
+/*#mapa {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}*/
+
+#mapa {
+  position: relative;
+  margin-top: 20px;
+  display: inline-block;  /* Ajusta el contenedor al tamaño de la imagen */
+}
+
+
+#planta {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: crosshair;
+}
+
+.punto {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: red;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* === Unificar tamaño visual de inputs y selects === */
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 42px; /* Mantiene la altura uniforme */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #fff;
+}
+
+/* Arreglo visual del <select> (quita diferencias del sistema operativo) */
+.form-grid select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23666' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 6px;
+  padding-right: 30px; /* deja espacio para la flecha */
+  line-height: normal;
+}
+
+/* Igualar comportamiento al enfocar */
+.form-grid select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Ajuste extra para textarea */
+.form-grid textarea {
+  height: auto;
+  resize: vertical;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

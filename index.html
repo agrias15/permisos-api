@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Permiso</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Contenedor de notificaciones -->
+<div id="toast" class="toast"></div>
+
+  <div class="container">
+    <h2>Formulario de Permiso</h2>
+    <form id="permisoForm" class="form-grid">
+
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="numero_permiso">Número del Permiso</label>
+      <input type="number" id="numero_permiso" name="numero_permiso" required>
+
+      <label for="tipo_permiso">Tipo de Permiso</label>
+      <!--<input type="text" id="tipo_permiso" name="tipo_permiso" required> aqui es origianl -->
+      <select id="tipo_permiso" name="tipo_permiso" required>
+        <option value="">Seleccione un tipo de permiso</option>
+        <option value="permiso en caliente">permiso en caliente</option>
+        <option value="permiso en frio">permiso en frio</option>
+        <option value="permiso electrico">permiso electrico</option>
+        <option value="permiso alta frecuencia">permiso alta frecuencia</option>
+      </select>
+
+      <label for="descripcion">Descripción de la Actividad</label>
+      <textarea id="descripcion" name="descripcion" rows="3" required></textarea>
+
+      <label for="condicion_permiso">Condicion Del Permiso</label>
+      <select id="condicion_permiso" name="condicion_permiso" required>
+        <option value="">Seleccione una condicion del permiso</option>
+        <option value="Trabajo en Alturas">Trabajo en Alturas</option>
+        <option value="Espacios Confinados">Espacios Confinados</option>
+        <option value="Excavación">Excavación</option>
+        <option value="Izaje">Izaje</option>
+        <option value="Otros">Sin condicion extra critica</option>
+      </select>
+
+      <label for="unidad">Unidad</label>
+      <!--<input type="text" id="unidad" name="unidad" required>-->
+      <select id="unidad" name="unidad" required>
+        <option value="">Seleccione la unidad</option>
+        <option value="U-110">U-110</option>
+        <option value="U-104">U-104</option>
+      </select>
+
+      <label for="numero_personas">Número de Personas</label>
+      <input type="number" id="numero_personas" name="numero_personas" required>
+
+      <label for="empresa">Empresa Ejecutora</label>
+      <input type="text" id="empresa" name="empresa" required>
+
+      <label for="equipo">Equipo a Intervenir (opcional)</label>
+      <input type="text" id="equipo" name="equipo">
+
+      <!-- Inputs ocultos para coordenadas -->
+      <input type="hidden" name="coordX" id="coordX">
+      <input type="hidden" name="coordY" id="coordY">
+
+      <button type="submit" id="btnGuardar" disabled>Guardar</button>
+    </form>
+
+    <h3>Seleccione el area de trabajo en la imagen:</h3>
+    <div id="mapa">
+      <img id="planta" src="110_map.png" alt="Planta">
+      <div id="punto" class="punto" style="display:none;"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
